@@ -1,7 +1,7 @@
 const games = [
   {
     title: "Legend Of Zaruto",
-    image: "assets/mopsy.jpg",
+    image: "assets/legendofzaruto.jpg",
     tags: "Stencyl . HTML5",
     link: "https://your-game-link.com"
   },
