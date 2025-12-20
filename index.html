@@ -25,13 +25,14 @@
       border-radius: 10px;
     }
 
-    .game-wrapper {
+  .game-wrapper {
   width: 640px;
   height: 480px;
-  margin: 0 auto;
+  margin: 0 auto; /* center */
   background: black;
+  overflow: hidden;
+  border-radius: 10px;
 }
-
 
 .game-frame {
   width: 640px;
@@ -56,14 +57,14 @@
   <div class="card">
     <h2>My Games</h2>
     <p>
-    <div class="game-wrapper">
+ <div class="game-wrapper">
   <iframe
     src="games/legend-of-zaruto/index.html"
-    width="640"
-    height="480"
-    frameborder="0"
-    allowfullscreen>
+    class="game-frame"
+    loading="lazy">
   </iframe>
+</div>
+</div>
 </div>
 
 </div>
