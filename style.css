@@ -10,9 +10,31 @@ body {
 }
 
 .hero {
+  position: relative;
+  height: 50vh; /* top half of screen */
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
-  padding: 80px 20px 40px;
+  padding: 20px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.2),
+      rgba(0,0,0,0.85)
+    ),
+    url("assets/banner.jpg"); /* <-- your background image */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 .avatar {
   width: 150px;
