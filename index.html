@@ -1,77 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
-  <meta charset="UTF-8">
-  <title>My Game Portfolio</title>
-  <style>
-    body {
-      background: #111;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px;
-    }
-
-    h1 {
-      font-size: 36px;
-    }
-
-    .card {
-      max-width: 800px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #1e1e1e;
-      border-radius: 10px;
-    }
-
-  .game-wrapper {
-  width: 640px;
-  height: 480px;
-  margin: 0 auto; /* center */
-  background: black;
-  overflow: hidden;
-  border-radius: 10px;
-}
-
-.game-frame {
-  width: 640px;
-  height: 480px;
-  border: none;
-}
-
-  </style>
+  <meta charset="UTF-8" />
+  <title>Fang Zhe | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <h1>My Game Portfolio</h1>
+  <!-- HEADER -->
+  <header class="hero">
+    <img src="assets/avatar.png" class="avatar" />
+    <h1>Fang Zhe’s Portfolio</h1>
+  </header>
 
-  <div class="card">
+  <!-- ABOUT -->
+  <section class="card">
     <h2>About Me</h2>
     <p>
-      I am a game developer.<br>
-      This portfolio showcases my projects.
+      My name is Fu Fang Zhe, a game programmer studying at UOW Malaysia.
+      I enjoy coffee, esports, and all things Pokémon :)
     </p>
-  </div>
 
-  <div class="card">
-    <h2>My Games</h2>
-    <p>
- <div class="game-wrapper">
-  <iframe
-    src="games/legend-of-zaruto/index.html"
-    class="game-frame"
-    loading="lazy">
-  </iframe>
-</div>
-</div>
-</div>
+    <div class="links">
+      <a href="mailto:fufangzhe64@gmail.com">Email →</a>
+      <a href="https://warpedvir.itch.io" target="_blank">itch.io →</a>
+      <a href="https://github.com/warpedvir" target="_blank">GitHub →</a>
+      <a href="#" target="_blank">Resume →</a>
+    </div>
+  </section>
 
-</div>
+  <!-- GAMES -->
+  <section class="card">
+    <h2>Games</h2>
+    <div id="games" class="games-grid"></div>
+  </section>
 
-
-    </p>
-  </div>
-
+  <script src="script.js"></script>
 </body>
 </html>
