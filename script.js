@@ -7,13 +7,13 @@ const games = [
   },
   {
     title: "Undecided title",
-    image: "assets/rapture.jpg",
+    image: "assets/comingsoon.jpg",
     tags: "Unity · Mobile · Single Player",
     link: "https://your-game-link.com"
   },
   {
     title: "Undecided title",
-    image: "assets/infamy.jpg",
+    image: "assets/comingsoon.jpg",
     tags: "Unreal Engine · PC",
     link: "https://your-game-link.com"
   }
