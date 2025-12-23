@@ -127,3 +127,21 @@ iframe:-webkit-full-screen {
   height: 100vh;
 }
 
+/* When the container enters fullscreen */
+.game-container:fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Safari / WebKit */
+.game-container:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Make iframe fill the container */
+.game-container:fullscreen iframe,
+.game-container:-webkit-full-screen iframe {
+  width: 100%;
+  height: 100%;
+}
