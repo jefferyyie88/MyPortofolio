@@ -3,7 +3,7 @@ const games = [
     title: "Legend Of Zaruto",
     image: "assets/legendofzaruto.png",
     tags: "Stencyl . HTML5",
-    link: "https://your-game-link.com"
+    link: "games/legend-of-zaruto/index.html"
   },
   {
     title: "Undecided title",
