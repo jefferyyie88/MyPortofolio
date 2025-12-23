@@ -115,3 +115,15 @@ p {
   font-size: 12px;
   color: #aaa;
 }
+
+/* Fullscreen scaling fix */
+iframe:fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+iframe:-webkit-full-screen {
+  width: 100vw;
+  height: 100vh;
+}
+
