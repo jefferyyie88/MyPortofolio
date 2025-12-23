@@ -115,18 +115,19 @@
 
   <!-- 🔳 FULLSCREEN SCRIPT -->
   <script>
-    function goFullscreen() {
-      const iframe = document.getElementById("gameFrame");
+  function goFullscreen() {
+    const box = document.getElementById("gameBox");
 
-      if (iframe.requestFullscreen) {
-        iframe.requestFullscreen();
-      } else if (iframe.webkitRequestFullscreen) {
-        iframe.webkitRequestFullscreen();
-      } else if (iframe.msRequestFullscreen) {
-        iframe.msRequestFullscreen();
-      }
+    if (box.requestFullscreen) {
+      box.requestFullscreen();
+    } else if (box.webkitRequestFullscreen) {
+      box.webkitRequestFullscreen();
+    } else if (box.msRequestFullscreen) {
+      box.msRequestFullscreen();
     }
-  </script>
+  }
+</script>
+
 
 </body>
 </html>
