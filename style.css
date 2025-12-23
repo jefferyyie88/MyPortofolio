@@ -146,36 +146,48 @@ iframe:-webkit-full-screen {
   height: 100%;
 }
 
+/* 🎬 Steam-style preview */
 .steam-preview {
-  max-width: 860px;
+  max-width: 900px;
   margin: 40px auto;
-  background: #1b1b1b;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 0 1px #2a2a2a, 0 10px 30px rgba(0,0,0,0.6);
 }
 
-.steam-preview video {
-  width: 100%;
-  display: block;
-  background: black;
-}
-
-.steam-preview .preview-info {
-  padding: 14px 18px;
-  border-top: 1px solid #2a2a2a;
-}
-
-.steam-preview .preview-title {
-  font-size: 16px;
+.steam-preview h2 {
+  font-size: 18px;
   font-weight: bold;
-  color: #66c0f4; /* Steam blue */
-  margin-bottom: 4px;
+  margin-bottom: 12px;
+  color: #c7d5e0; /* Steam blue-gray */
 }
 
-.steam-preview .preview-desc {
-  font-size: 14px;
-  color: #c7d5e0;
-  opacity: 0.85;
+.steam-video-frame {
+  background: #000;
+  border: 1px solid #2a475e;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(42, 71, 94, 0.6);
+  transition: box-shadow 0.3s ease;
+  <span style="
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#5c7e10;
+  color:white;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:3px;">
+  Student Project
+</span>
+
+}
+
+.steam-video-frame:hover {
+  box-shadow: 0 0 20px rgba(66, 139, 202, 0.5);
+}
+
+.steam-video-frame video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: black;
+  display: block;
 }
 
