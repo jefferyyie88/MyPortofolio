@@ -10,22 +10,58 @@
       margin: 0;
       background: #111;
       color: white;
+      font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      font-family: Arial;
+    }
+
+    .content {
+      max-width: 900px;
+      width: 100%;
+      padding: 20px;
     }
 
     .game-container {
       width: 640px;
       height: 480px;
       background: black;
+      margin: auto;
+      position: relative;
     }
 
     iframe {
       width: 100%;
       height: 100%;
       border: none;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      gap: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      background: #0af;
+      border: none;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #08c;
+    }
+
+    .description img {
+      width: 100%;
+      max-width: 800px;
+      display: block;
+      margin: 20px auto;
+      border-radius: 6px;
     }
 
     @media (max-width: 700px) {
@@ -39,13 +75,58 @@
 </head>
 <body>
 
-  <h1>Legend of Zaruto</h1>
+  <div class="content">
+    <h1>Legend of Zaruto</h1>
 
-  <div class="game-container">
-    <iframe src="index.html"></iframe>
+    <!-- 🎮 GAME -->
+    <div class="game-container" id="gameBox">
+      <iframe id="gameFrame" src="index.html"></iframe>
+    </div>
+
+    <!-- 🎛 CONTROLS -->
+    <div class="controls">
+      <button onclick="goFullscreen()">Fullscreen</button>
+      <a href="../../index.html" style="color:#0af; align-self:center;">← Back</a>
+    </div>
+
+    <!-- 🖼 DESCRIPTION SECTION -->
+    <div class="description">
+      <img src="assets/preview.png" alt="Legend of Zaruto screenshot">
+
+      <p>
+        <strong>Legend of Zaruto</strong> is a 2D action-adventure game created using
+        <strong>Stencyl (HTML5)</strong>.
+      </p>
+
+      <p>
+        Players explore dangerous areas, fight enemies, and survive using fast
+        reflexes and strategy. This project was created as a semester final project
+        focusing on combat mechanics and level design.
+      </p>
+
+      <p>
+        <strong>Controls:</strong><br>
+        • Arrow Keys / WASD – Move<br>
+        • Space – Attack<br>
+        • Z – Jump
+      </p>
+    </div>
   </div>
 
-  <a href="../../index.html" style="color:#0af">← Back</a>
+  <!-- 🔳 FULLSCREEN SCRIPT -->
+  <script>
+    function goFullscreen() {
+      const iframe = document.getElementById("gameFrame");
+
+      if (iframe.requestFullscreen) {
+        iframe.requestFullscreen();
+      } else if (iframe.webkitRequestFullscreen) {
+        iframe.webkitRequestFullscreen();
+      } else if (iframe.msRequestFullscreen) {
+        iframe.msRequestFullscreen();
+      }
+    }
+  </script>
 
 </body>
 </html>
