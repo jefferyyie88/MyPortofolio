@@ -145,3 +145,37 @@ iframe:-webkit-full-screen {
   width: 100%;
   height: 100%;
 }
+
+.steam-preview {
+  max-width: 860px;
+  margin: 40px auto;
+  background: #1b1b1b;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px #2a2a2a, 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.steam-preview video {
+  width: 100%;
+  display: block;
+  background: black;
+}
+
+.steam-preview .preview-info {
+  padding: 14px 18px;
+  border-top: 1px solid #2a2a2a;
+}
+
+.steam-preview .preview-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #66c0f4; /* Steam blue */
+  margin-bottom: 4px;
+}
+
+.steam-preview .preview-desc {
+  font-size: 14px;
+  color: #c7d5e0;
+  opacity: 0.85;
+}
+
