@@ -273,8 +273,50 @@ document.addEventListener('msfullscreenchange', resizeGame);
 
       <img src="../../assets/skilllist.png" alt="Skill list">
       
+      <p>
+        <strong>How it works</strong>
+      </p>
+      
+      <p>
+       Each Ninja sign is assign with Number which is : <br>
+        Q = 1 <br>
+        W = 2 <br>
+        E = 2 <br> 
+      </p>
 
+      <p>
+        I Created several attribute for this to work which is  : <br>
+        1. Channeling (Boolean) <br>
+        2. Channeling time (number) <br>
+        3. 1st Sign (number) <br>
+        4. 2nd Sign (number) <br>
+        5. 3rd Sign (number) <br>
+        All Number attribute default is 0 <br>
+      </p>
+      
+      <p>
+        So the flow is , when player press any sign key (Q/W/E) , the channeling boolean will be set to true , channeling time increase by 2 second every time sign is pressed. <br>
+        When player press any sign key , it will fill the 1st sign , if the first sign is filled or not 0 , then it will continue to fill the 2nd sign , and lastly 3rd sign. <br>
+        When 3 sign is filled , player can press R to cast skill. The skill that is casted will be depends on the result of the multiply of 1st , 2nd , and 3rd sign. <br>
+      </p>
 
+      <p>
+        <strong> Example : </strong> <br>
+        1. Q W E = 1 x 2 x 3 = 6 , Because the total calculation is 6 then Player will cast Water tornado when R is pressed. <br>
+        2. Q Q Q = 1 x 1 x 1 = 1 , Because the total calculation is 1 then player will cast fire ball when R is pressed. <br>
+        3. Q Q (Blank only 1st and 2nd sign is filled) = 1 x 1 x 0 , because the total calculation is 0 then the player will not cast any skill. <br>
+      </p>
+
+      <p>
+        When the channeling time of 2 seconds end , the channeling will set to false and all the sign will be reseted to 0. 
+      </p>
+
+    <p>
+      <strong>Screenshot of the block code : </strong>
+    </p>
+      
+      <img src="../../assets/codingconcept2.png" alt="Skill list">
+      <img src="../../assets/codingconcept1.png" alt="Skill list">
       
     </div>
   </div>
