@@ -98,6 +98,29 @@
       <a href="../../index.html" style="color:#0af; align-self:center;">← Back</a>
     </div>
 
+    <script>
+  function startGame() {
+    const iframe = document.getElementById("gameFrame");
+    const overlay = document.getElementById("playOverlay");
+
+    iframe.src = "index.html"; // load game only now
+    overlay.style.display = "none";
+  }
+
+  function goFullscreen() {
+    const box = document.getElementById("gameBox");
+
+    if (box.requestFullscreen) {
+      box.requestFullscreen();
+    } else if (box.webkitRequestFullscreen) {
+      box.webkitRequestFullscreen();
+    } else if (box.msRequestFullscreen) {
+      box.msRequestFullscreen();
+    }
+  }
+</script>
+
+
     <!-- 🖼 DESCRIPTION SECTION -->
     <div class="description">
       <!-- 🎬 STEAM STYLE VIDEO PREVIEW -->
