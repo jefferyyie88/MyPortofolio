@@ -165,6 +165,23 @@
       <a href="../../index.html" style="color:#0af; align-self:center;">← Back</a>
     </div>
 
+    <!-- Floating contact buttons (email & WhatsApp) for play page -->
+    <div class="contact-fab" aria-hidden="false">
+      <div class="fab-wrap">
+        <button class="fab-btn" id="fab-email" data-contact="Jefferyyie88@gmail.com" title="Email">
+          ✉
+        </button>
+        <div class="fab-label">Email</div>
+      </div>
+
+      <div class="fab-wrap">
+        <button class="fab-btn" id="fab-phone" data-contact="601153423376" title="WhatsApp" aria-label="WhatsApp">
+          <img src="../../assets/whatsapp.svg" class="fab-icon" alt="WhatsApp" />
+        </button>
+        <div class="fab-label">WhatsApp</div>
+      </div>
+    </div>
+
     <script>
   function startGame() {
   const iframe = document.getElementById("gameFrame");
@@ -227,6 +244,59 @@ document.addEventListener('msfullscreenchange', resizeGame);
       
 </script>
 
+<!-- Contact FAB script for play page -->
+<script>
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text);
+  }
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  return Promise.resolve();
+}
+
+function showTempLabel(el, msg = 'Copied') {
+  const label = document.createElement('div');
+  label.textContent = msg;
+  label.style.position = 'absolute';
+  label.style.right = '60px';
+  label.style.top = '50%';
+  label.style.transform = 'translateY(-50%)';
+  label.style.background = 'rgba(0,0,0,0.85)';
+  label.style.color = '#fff';
+  label.style.padding = '6px 8px';
+  label.style.borderRadius = '6px';
+  label.style.zIndex = 2000;
+  el.parentElement.appendChild(label);
+  setTimeout(() => label.remove(), 1400);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const emailBtn = document.getElementById('fab-email');
+  const phoneBtn = document.getElementById('fab-phone');
+
+  if (emailBtn) {
+    emailBtn.addEventListener('click', (e) => {
+      const email = emailBtn.dataset.contact;
+      copyToClipboard(email).then(() => showTempLabel(emailBtn, 'Email copied'));
+      window.location.href = `mailto:${email}`;
+    });
+  }
+
+  if (phoneBtn) {
+    phoneBtn.addEventListener('click', (e) => {
+      const phone = phoneBtn.dataset.contact;
+      copyToClipboard(phone).then(() => showTempLabel(phoneBtn, 'Number copied'));
+      const wa = `https://wa.me/${phone}`;
+      window.open(wa, '_blank');
+    });
+  }
+});
+</script>
     
 
     <!-- 🖼 DESCRIPTION SECTION -->
