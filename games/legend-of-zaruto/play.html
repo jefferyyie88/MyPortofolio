@@ -28,12 +28,51 @@
       background: black;
       margin: auto;
       position: relative;
+      overflow: hidden; /* ensure scaled content doesn't overflow the box */
+    }
+
+    /* the wrapper that holds the fixed 640x480 game and gets scaled */
+    .game-scale {
+      width: 640px;
+      height: 480px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform-origin: 0 0; /* scale from top-left, easier to compute offsets */
+    }
+
+    /* play overlay sits above the scaled game so the button is clickable */
+    .play-overlay {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      pointer-events: auto;
+      background: rgba(0,0,0,0.0); /* keep transparent but intercept clicks */
+    }
+
+    .play-btn {
+      font-size: 20px;
+      padding: 12px 18px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background: #0af;
+      color: #000;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
 
     iframe {
       width: 100%;
       height: 100%;
       border: none;
+      display: block;
     }
 
     .controls {
@@ -71,6 +110,12 @@
         height: auto;
       }
     }
+    /* when the container is fullscreen make it fill the screen */
+    .game-container:-webkit-full-screen,
+    .game-container:fullscreen {
+      width: 100vw !important;
+      height: 100vh !important;
+    }
   </style>
 </head>
 <body>
@@ -88,7 +133,7 @@
 
   <!-- 🔍 SCALE WRAPPER (STEP 2 GOES HERE) -->
   <div class="game-scale" id="gameScale">
-    <iframe id="gameFrame"></iframe>
+    <iframe id="gameFrame" title="game-frame" allowfullscreen></iframe>
   </div>
 
 </div>
@@ -106,10 +151,14 @@
   const iframe = document.getElementById("gameFrame");
   const overlay = document.getElementById("playOverlay");
 
-  iframe.src = "index.html";
+  console.log('startGame() called, current iframe src=', iframe.src);
+  if (!iframe.src || iframe.src === window.location.href) {
+    // set src only once
+    iframe.src = "index.html";
+  }
   overlay.style.display = "none";
 
-  // ✅ IMPORTANT: wait a moment, then resize
+  // ✅ IMPORTANT: wait a moment, then resize so the scaled element is centered
   setTimeout(resizeGame, 100);
 }
 
@@ -134,16 +183,27 @@
   const box = document.getElementById("gameBox");
   const scaleBox = document.getElementById("gameScale");
 
+  // compute scale to fit the fixed 640x480 game inside the container
   const scaleX = box.clientWidth / 640;
   const scaleY = box.clientHeight / 480;
   const scale = Math.min(scaleX, scaleY);
 
+  // apply scale (transform-origin is 0 0 so left/top offsets are simple)
   scaleBox.style.transform = `scale(${scale})`;
-  scaleBox.style.marginLeft =
-    (box.clientWidth - 640 * scale) / 2 + "px";
-  scaleBox.style.marginTop =
-    (box.clientHeight - 480 * scale) / 2 + "px";
+
+  // center the scaled box inside the container
+  const scaledW = 640 * scale;
+  const scaledH = 480 * scale;
+  scaleBox.style.left = (box.clientWidth - scaledW) / 2 + "px";
+  scaleBox.style.top = (box.clientHeight - scaledH) / 2 + "px";
 }
+
+// keep layout responsive
+window.addEventListener('resize', resizeGame);
+// call resize when fullscreen state changes
+document.addEventListener('fullscreenchange', resizeGame);
+document.addEventListener('webkitfullscreenchange', resizeGame);
+document.addEventListener('msfullscreenchange', resizeGame);
 
       
 </script>
@@ -200,20 +260,7 @@
     </div>
   </div>
 
-  <!-- 🔳 FULLSCREEN SCRIPT -->
-  <script>
-  function goFullscreen() {
-    const box = document.getElementById("gameBox");
-
-    if (box.requestFullscreen) {
-      box.requestFullscreen();
-    } else if (box.webkitRequestFullscreen) {
-      box.webkitRequestFullscreen();
-    } else if (box.msRequestFullscreen) {
-      box.msRequestFullscreen();
-    }
-  }
-</script>
+  <!-- duplicate fullscreen script removed (handled above) -->
 
 
 </body>
