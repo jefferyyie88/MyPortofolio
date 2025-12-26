@@ -79,9 +79,18 @@
     <h1>Legend of Zaruto</h1>
 
     <!-- 🎮 GAME -->
-    <div class="game-container" id="gameBox">
-      <iframe id="gameFrame" src="index.html"></iframe>
-    </div>
+   <div class="game-container" id="gameBox">
+
+  <!-- ▶ PLAY OVERLAY -->
+  <div class="play-overlay" id="playOverlay">
+    <button class="play-btn" onclick="startGame()">▶ Play</button>
+  </div>
+
+  <!-- GAME IFRAME (NO SRC YET) -->
+  <iframe id="gameFrame"></iframe>
+
+</div>
+
 
     <!-- 🎛 CONTROLS -->
     <div class="controls">
