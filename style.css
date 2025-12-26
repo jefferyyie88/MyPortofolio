@@ -116,28 +116,23 @@ p {
   color: #aaa;
 }
 
-/* Fullscreen scaling fix */
-iframe:fullscreen {
-  width: 100vw;
-  height: 100vh;
+
+.game-container {
+  width: 640px;
+  height: 480px;
+  background: black;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
 }
 
-iframe:-webkit-full-screen {
-  width: 100vw;
-  height: 100vh;
+/* 🔍 SCALE WRAPPER */
+.game-scale {
+  width: 640px;
+  height: 480px;
+  transform-origin: top left;
 }
 
-/* When the container enters fullscreen */
-.game-container:fullscreen {
-  width: 100vw;
-  height: 100vh;
-}
-
-/* Safari / WebKit */
-.game-container:-webkit-full-screen {
-  width: 100vw;
-  height: 100vh;
-}
 
 /* Make iframe fill the container */
 .game-container:fullscreen iframe,
