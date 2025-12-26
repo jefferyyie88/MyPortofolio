@@ -135,6 +135,59 @@
       width: 100vw !important;
       height: 100vh !important;
     }
+
+    /* Floating contact buttons (bottom-right) - local copy for play page */
+    .contact-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1200;
+    }
+
+    .fab-wrap { position: relative; }
+
+    .fab-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(180deg,#1a9fff,#0b78d6);
+      color: #fff;
+      border: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      cursor: pointer;
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .fab-icon { width: 20px; height: 20px; display: block; }
+
+    .fab-label {
+      position: absolute;
+      right: 60px;
+      top: 50%;
+      transform: translateY(-50%) translateX(6px);
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.12s ease, transform 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .fab-wrap:hover .fab-label,
+    .fab-wrap:focus-within .fab-label {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
   </style>
 </head>
 <body>
