@@ -103,12 +103,20 @@
 
     <script>
   function startGame() {
-    const iframe = document.getElementById("gameFrame");
-    const overlay = document.getElementById("playOverlay");
+  const iframe = document.getElementById("gameFrame");
+  const overlay = document.getElementById("playOverlay");
 
-    iframe.src = "index.html"; // load game only now
-    overlay.style.display = "none";
-  }
+  iframe.src = "index.html";
+  overlay.style.display = "none";
+
+  // ✅ IMPORTANT: wait a moment, then resize
+  setTimeout(resizeGame, 100);
+}
+
+      document.getElementById("gameFrame").addEventListener("load", () => {
+  resizeGame();
+});
+
 
   function goFullscreen() {
     const box = document.getElementById("gameBox");
@@ -121,8 +129,26 @@
       box.msRequestFullscreen();
     }
   }
+
+      function resizeGame() {
+  const box = document.getElementById("gameBox");
+  const scaleBox = document.getElementById("gameScale");
+
+  const scaleX = box.clientWidth / 640;
+  const scaleY = box.clientHeight / 480;
+  const scale = Math.min(scaleX, scaleY);
+
+  scaleBox.style.transform = `scale(${scale})`;
+  scaleBox.style.marginLeft =
+    (box.clientWidth - 640 * scale) / 2 + "px";
+  scaleBox.style.marginTop =
+    (box.clientHeight - 480 * scale) / 2 + "px";
+}
+
+      
 </script>
 
+    
 
     <!-- 🖼 DESCRIPTION SECTION -->
     <div class="description">
