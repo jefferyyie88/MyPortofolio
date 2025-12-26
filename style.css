@@ -161,6 +161,7 @@ p {
   overflow: hidden;
   box-shadow: 0 0 0 1px rgba(42, 71, 94, 0.6);
   transition: box-shadow 0.3s ease;
+  position: relative;
 
 
 }
@@ -199,5 +200,17 @@ p {
 
 .play-btn:hover {
   background: #0d7bdc;
+}
+
+.project-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #5c7e10;
+  color: white;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 3px;
+  z-index: 2;
 }
 
