@@ -214,3 +214,15 @@ p {
   z-index: 2;
 }
 
+.game-container:fullscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-container:-webkit-full-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
